@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "Saint_Kitts_and_Nevis.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Saint_Kitts_and_Nevis@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Saint_Kitts_and_Nevis@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

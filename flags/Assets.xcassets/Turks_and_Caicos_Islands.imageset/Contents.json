@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "Turks_and_Caicos_Islands.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Turks_and_Caicos_Islands@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Turks_and_Caicos_Islands@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
