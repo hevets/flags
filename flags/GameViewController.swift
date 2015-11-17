@@ -7,26 +7,29 @@
 //
 
 import UIKit
-import GameplayKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
+    @IBOutlet weak var questionTitle: UILabel!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var wrongLabel: UILabel!
 
-    var countries = [String]()
-    var score = 0
-    var correctAnswer = 0
-    var right = 0
-    var wrong = 0
+    var game:Game!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // load the flags for the game
+        let path = NSBundle.mainBundle().pathForResource("countries", ofType: "txt")!
+        let countryNames = try! String(contentsOfFile: path).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let countries = countryNames.componentsSeparatedByString("\n")
+
+        game = Game(newItems: countries)
+
         configureUI()
-        configureImages()
         askQuestion()
     }
 
@@ -44,38 +47,29 @@ class ViewController: UIViewController {
         button3.layer.borderColor = UIColor.lightGrayColor().CGColor
     }
 
-    func configureImages() {
-        let path = NSBundle.mainBundle().pathForResource("countries", ofType: "txt")!
-        let countryNames = try! String(contentsOfFile: path).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        countries += countryNames.componentsSeparatedByString("\n")
-    }
-
     func askQuestion(action: UIAlertAction! = nil) {
-        countries = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(countries) as! [String]
-        button1.setImage(UIImage(named: countries[0]), forState: .Normal)
-        button2.setImage(UIImage(named: countries[1]), forState: .Normal)
-        button3.setImage(UIImage(named: countries[2]), forState: .Normal)
-        correctAnswer = GKRandomSource.sharedRandom().nextIntWithUpperBound(3)
-        title = formatName(countries[correctAnswer].uppercaseString)
+        let question = game.askQuestion()
+
+        button1.setImage(UIImage(named: question.items[0]), forState: .Normal)
+        button2.setImage(UIImage(named: question.items[1]), forState: .Normal)
+        button3.setImage(UIImage(named: question.items[2]), forState: .Normal)
+
+        questionTitle.text = formatName(question.items[question.answer])
     }
 
     @IBAction func buttonTapped(sender: UIButton) {
-        if sender.tag == correctAnswer {
-            title = "Correct"
-            ++score
-            ++right
+        if game.checkAnswer(sender.tag) {
+            questionTitle.text = "Correct"
         } else {
-            title = "Wrong"
-            --score
-            ++wrong
+            questionTitle.text = "Wrong"
         }
 
         updateView()
     }
 
     func updateView() {
-        rightLabel.text = "Right: \(right)"
-        wrongLabel.text = "Wrong: \(wrong)"
+        rightLabel.text = "Right: \(game.right)"
+        wrongLabel.text = "Wrong: \(game.wrong)"
 
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1500 * Double(NSEC_PER_MSEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -86,6 +80,6 @@ class ViewController: UIViewController {
     func formatName(name: String) -> String {
         return String(name.stringByReplacingOccurrencesOfString("_", withString: " "))
     }
-    
+
 }
 

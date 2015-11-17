@@ -13,7 +13,9 @@
 		D34025B51BFB15E8008D0C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34025AD1BFB15E8008D0C5F /* Main.storyboard */; };
 		D34025B61BFB15E8008D0C5F /* countries.txt in Resources */ = {isa = PBXBuildFile; fileRef = D34025AF1BFB15E8008D0C5F /* countries.txt */; };
 		D34025B71BFB15E8008D0C5F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D34025B01BFB15E8008D0C5F /* Info.plist */; };
-		D34025B81BFB15E8008D0C5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34025B11BFB15E8008D0C5F /* ViewController.swift */; };
+		D34025B81BFB15E8008D0C5F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34025B11BFB15E8008D0C5F /* GameViewController.swift */; };
+		D35FF71D1BFB6F870054B486 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FF71C1BFB6F870054B486 /* MenuViewController.swift */; };
+		D35FF71F1BFB704B0054B486 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FF71E1BFB704B0054B486 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +26,9 @@
 		D34025AE1BFB15E8008D0C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		D34025AF1BFB15E8008D0C5F /* countries.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = countries.txt; path = flags/countries.txt; sourceTree = "<group>"; };
 		D34025B01BFB15E8008D0C5F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = flags/Info.plist; sourceTree = "<group>"; };
-		D34025B11BFB15E8008D0C5F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = flags/ViewController.swift; sourceTree = "<group>"; };
+		D34025B11BFB15E8008D0C5F /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = flags/GameViewController.swift; sourceTree = "<group>"; };
+		D35FF71C1BFB6F870054B486 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = flags/MenuViewController.swift; sourceTree = "<group>"; };
+		D35FF71E1BFB704B0054B486 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		D3E4CDFD1BF7DFCA00E685E1 /* Flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flags.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -47,7 +51,9 @@
 				D34025AA1BFB15E8008D0C5F /* Base.lproj */,
 				D34025AF1BFB15E8008D0C5F /* countries.txt */,
 				D34025B01BFB15E8008D0C5F /* Info.plist */,
-				D34025B11BFB15E8008D0C5F /* ViewController.swift */,
+				D34025B11BFB15E8008D0C5F /* GameViewController.swift */,
+				D35FF71E1BFB704B0054B486 /* Game.swift */,
+				D35FF71C1BFB6F870054B486 /* MenuViewController.swift */,
 				D34025A71BFB15E7008D0C5F /* Flags-Bridging-Header.h */,
 			);
 			name = flags;
@@ -169,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34025B81BFB15E8008D0C5F /* ViewController.swift in Sources */,
+				D34025B81BFB15E8008D0C5F /* GameViewController.swift in Sources */,
+				D35FF71D1BFB6F870054B486 /* MenuViewController.swift in Sources */,
 				D34025B21BFB15E8008D0C5F /* AppDelegate.swift in Sources */,
+				D35FF71F1BFB704B0054B486 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
