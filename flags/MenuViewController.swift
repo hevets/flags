@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Chameleon
 
 class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.init(patternImage: UIImage(named: "green_cup")!)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

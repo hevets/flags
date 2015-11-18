@@ -38,8 +38,13 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .Default
+    }
+
     func configureUI() {
-        view.backgroundColor = UIColor.lightGrayColor()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        view.backgroundColor = UIColor.flatWhiteColor()
         styleButton(button1, button2, button3)
     }
 
@@ -47,10 +52,6 @@ class GameViewController: UIViewController {
         for button in buttons {
             button.layer.cornerRadius = 6.0
             button.layer.masksToBounds = true
-            button.layer.shadowColor = UIColor.lightGrayColor().CGColor
-            button.layer.shadowOpacity = 0.4
-            button.layer.shadowRadius = 10
-            button.layer.shadowOffset = CGSizeMake(2.0, 5.0)
         }
     }
 
