@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
 
         game = Game(newItems: countries)
 
+        questionTitle.text = "Steve"
+        
         configureUI()
         askQuestion()
     }
