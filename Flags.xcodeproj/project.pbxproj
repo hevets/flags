@@ -16,7 +16,34 @@
 		D34025B81BFB15E8008D0C5F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34025B11BFB15E8008D0C5F /* GameViewController.swift */; };
 		D35FF71D1BFB6F870054B486 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FF71C1BFB6F870054B486 /* MenuViewController.swift */; };
 		D37F997D1BFBA8E600BD099A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F997C1BFBA8E600BD099A /* Game.swift */; };
+		D39A8D461BFC3B35009080CE /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39A8D451BFC3B35009080CE /* Chameleon.framework */; };
+		D39A8D471BFC3B35009080CE /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D39A8D451BFC3B35009080CE /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D39A8D4C1BFC3C18009080CE /* Chameleon.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = D39A8D4B1BFC3C18009080CE /* Chameleon.framework.dSYM */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D39A8D481BFC3B36009080CE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D39A8D471BFC3B35009080CE /* Chameleon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39A8D4A1BFC3BF7009080CE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				D39A8D4C1BFC3C18009080CE /* Chameleon.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D34025A71BFB15E7008D0C5F /* Flags-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flags-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -29,6 +56,8 @@
 		D34025B11BFB15E8008D0C5F /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = flags/GameViewController.swift; sourceTree = "<group>"; };
 		D35FF71C1BFB6F870054B486 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = flags/MenuViewController.swift; sourceTree = "<group>"; };
 		D37F997C1BFBA8E600BD099A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = flags/Game.swift; sourceTree = "<group>"; };
+		D39A8D451BFC3B35009080CE /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
+		D39A8D4B1BFC3C18009080CE /* Chameleon.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Chameleon.framework.dSYM; path = Carthage/Build/iOS/Chameleon.framework.dSYM; sourceTree = "<group>"; };
 		D3E4CDFD1BF7DFCA00E685E1 /* Flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flags.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -37,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39A8D461BFC3B35009080CE /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +102,8 @@
 		D3E4CDF41BF7DFCA00E685E1 = {
 			isa = PBXGroup;
 			children = (
+				D39A8D4B1BFC3C18009080CE /* Chameleon.framework.dSYM */,
+				D39A8D451BFC3B35009080CE /* Chameleon.framework */,
 				D34025A61BFB15D7008D0C5F /* flags */,
 				D3E4CDFE1BF7DFCA00E685E1 /* Products */,
 			);
@@ -96,6 +128,9 @@
 				D3E4CDFA1BF7DFCA00E685E1 /* Frameworks */,
 				D3E4CDFB1BF7DFCA00E685E1 /* Resources */,
 				D3EBC46B1BFB0671003AB14B /* ShellScript */,
+				D39A8D481BFC3B36009080CE /* Embed Frameworks */,
+				D39A8D491BFC3BA9009080CE /* ShellScript */,
+				D39A8D4A1BFC3BF7009080CE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -155,6 +190,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D39A8D491BFC3BA9009080CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		D3EBC46B1BFB0671003AB14B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -290,6 +339,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = flags/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hevets.flags;
@@ -304,6 +357,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = flags/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hevets.flags;

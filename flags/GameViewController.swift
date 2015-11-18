@@ -10,7 +10,6 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    @IBOutlet weak var questionTitle: UILabel!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -29,8 +28,7 @@ class GameViewController: UIViewController {
 
         game = Game(newItems: countries)
 
-        questionTitle.text = "Steve"
-        
+
         configureUI()
         askQuestion()
     }
@@ -41,12 +39,19 @@ class GameViewController: UIViewController {
     }
 
     func configureUI() {
-        button1.layer.borderWidth = 1
-        button1.layer.borderColor = UIColor.lightGrayColor().CGColor
-        button2.layer.borderWidth = 1
-        button2.layer.borderColor = UIColor.lightGrayColor().CGColor
-        button3.layer.borderWidth = 1
-        button3.layer.borderColor = UIColor.lightGrayColor().CGColor
+        view.backgroundColor = UIColor.lightGrayColor()
+        styleButton(button1, button2, button3)
+    }
+
+    func styleButton(buttons: UIButton...) {
+        for button in buttons {
+            button.layer.cornerRadius = 6.0
+            button.layer.masksToBounds = true
+            button.layer.shadowColor = UIColor.lightGrayColor().CGColor
+            button.layer.shadowOpacity = 0.4
+            button.layer.shadowRadius = 10
+            button.layer.shadowOffset = CGSizeMake(2.0, 5.0)
+        }
     }
 
     func askQuestion(action: UIAlertAction! = nil) {
@@ -55,15 +60,18 @@ class GameViewController: UIViewController {
         button1.setImage(UIImage(named: question.items[0]), forState: .Normal)
         button2.setImage(UIImage(named: question.items[1]), forState: .Normal)
         button3.setImage(UIImage(named: question.items[2]), forState: .Normal)
+        self.enableButtons(button1, button2, button3)
 
-        questionTitle.text = formatName(question.items[question.answer])
+        self.navigationItem.title = formatName(question.items[question.answer])
     }
 
     @IBAction func buttonTapped(sender: UIButton) {
+        disableButtons(button1, button2, button3)
+
         if game.checkAnswer(sender.tag) {
-            questionTitle.text = "Correct"
+            self.navigationItem.title = "Correct"
         } else {
-            questionTitle.text = "Wrong"
+            self.navigationItem.title = "Wrong"
         }
 
         updateView()
@@ -79,9 +87,21 @@ class GameViewController: UIViewController {
         }
     }
 
+    func disableButtons(buttons: UIButton...) {
+        for button in buttons {
+            button.enabled = false
+        }
+    }
+
+    func enableButtons(buttons: UIButton...) {
+        for button in buttons {
+            button.enabled = true
+        }
+    }
+
     func formatName(name: String) -> String {
         return String(name.stringByReplacingOccurrencesOfString("_", withString: " "))
     }
-
+    
 }
 
