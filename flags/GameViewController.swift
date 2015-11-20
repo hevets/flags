@@ -10,6 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -28,7 +29,6 @@ class GameViewController: UIViewController {
 
         game = Game(newItems: countries)
 
-
         configureUI()
         askQuestion()
     }
@@ -43,8 +43,7 @@ class GameViewController: UIViewController {
     }
 
     func configureUI() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        view.backgroundColor = UIColor.flatWhiteColor()
+        // navigation bar
         styleButton(button1, button2, button3)
     }
 
@@ -63,16 +62,16 @@ class GameViewController: UIViewController {
         button3.setImage(UIImage(named: question.items[2]), forState: .Normal)
         self.enableButtons(button1, button2, button3)
 
-        self.navigationItem.title = formatName(question.items[question.answer])
+        self.questionLabel.text = formatName(question.items[question.answer])
     }
 
     @IBAction func buttonTapped(sender: UIButton) {
         disableButtons(button1, button2, button3)
 
         if game.checkAnswer(sender.tag) {
-            self.navigationItem.title = "Correct"
+            self.questionLabel.text = "Correct"
         } else {
-            self.navigationItem.title = "Wrong"
+            self.questionLabel.text = "Wrong"
         }
 
         updateView()

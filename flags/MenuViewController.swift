@@ -11,12 +11,14 @@ import Chameleon
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet weak var overlayView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
     }
 
     override func didReceiveMemoryWarning() {
